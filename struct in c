@@ -1,0 +1,123 @@
+->Refer notes for definition and stuff and array of structures 
+here example is with structure student inside it you have three datatypes interger,character,float 
+with the same student structure you can create various variables like firststudent and second student
+#include <stdio.h>
+#include<string.h>
+struct student{
+        int rollno;
+        char name[20];
+        float cgpa;
+    };
+int main() {
+    struct student first;
+    first.rollno=1;
+    strcpy(first.name,"Diago");
+    first.cgpa=76.8;
+    printf("%d\n",first.rollno);
+    printf("%s\n",first.name);//Because in C a string is an array (a fixed box in memory), not a single value, arrays can’t be assigned with `=`, so you must copy the characters into the array using `strcpy` instead of replacing it.
+    printf("%.2lf\n",first.cgpa);
+    
+    struct student sec;
+    sec.rollno=2;
+    strcpy(sec.name,"Lolo");
+    sec.cgpa=87.8;
+    printf("%d\n",sec.rollno);
+    printf("%s\n",sec.name);
+    printf("%.2lf\n",sec.cgpa);
+    return 0;
+}
+-> THIS PROGRAM IS AN EXAMPLE FOR ARRAY OF STRUCTURES
+#include <stdio.h>
+#include<string.h>
+struct student{
+        int rollno;
+        char name[20];
+        float cgpa;
+    };
+int main() {
+    struct student ece[100];
+    struct student csc[100];
+//you can now store details of the ece and csc students like this 
+ece[0].rollno=1;
+strcpy(ece[0].name,"Walter white");
+ece[0].cgpa=98.7;
+printf("Under student database in Ece department you are accessing student\n");
+printf("roll no is:%d\n",ece[0].rollno);
+printf("name is:%s\n",ece[0].name);
+printf("Cpgpa is:%.2lf\n",ece[0].cgpa);
+
+    return 0;
+}
+->INITIALIZING VARAIBLES IN ONE GO
+#include <stdio.h>
+#include<string.h>
+struct student{
+        int rollno;
+        char name[20];
+        float cgpa;
+    };
+int main() {
+//Instead of declaring the values everytime like ece.roll and ece.cgpa we can delcare it in one go if u know values before hand
+    struct student firststd={1,"Diago",98.78};
+    printf("name is:%s",firststd.name);
+    return 0;
+}   OUTPUT=name is:Diago
+
+->STRUCTURES WITH POINTERS
+#include <stdio.h>
+#include<string.h>
+struct student{
+        int rollno;
+        char name[20];
+        float cgpa;
+    };
+int main() {
+    struct student firststd={1,"Diago",98.78};
+    struct student *ptr=&firststd;
+    printf("%s",(*ptr).name);
+    printf("%s",ptr->name);//we can also use (->)sybol instead of * for easy understanding
+    return 0;
+}    OUTPUT:Diago
+            Diago
+
+//functions pass by value
+#include <stdio.h>
+#include<string.h>
+struct student{
+        int rollno;
+        char name[20];
+        float cgpa;
+    };
+void print(struct student firststd);
+
+int main() {
+    struct student firststd={1,"Diago",98.78};
+    print(firststd);
+    return 0;
+} 
+
+void  print(struct student firststd){
+    printf("%s\n",firststd.name);
+    printf("%.2lf",firststd.cgpa);
+} OUTPUT=Diago
+         98.78
+
+->typedef keyword in sturctures
+#include <stdio.h>
+#include <string.h>
+typedef struct breakingbad{
+    int age;
+    char name[20];
+}bb;
+int main() {
+    bb first;
+    first.age=25;
+    strcpy(first.name,"Walter white");
+    printf("%s",first.name);
+    return 0;
+}
+OUTPUT=Walter white
+  
+
+
+
