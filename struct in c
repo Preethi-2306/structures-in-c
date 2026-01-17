@@ -117,7 +117,49 @@ int main() {
     return 0;
 }
 OUTPUT=Walter white
-  
+
+->PROGRAM TO PRINT ADDRESS USING FUNCTION 
+#include <stdio.h>
+
+struct address {
+    int hno;
+    int block;
+    char city[20];
+    char state[20];
+};
+
+void print(struct address adds);
+
+int main() {
+    struct address add;
+
+    printf("Enter house no: ");
+    scanf("%d", &add.hno);
+
+    printf("Enter block no: ");
+    scanf("%d", &add.block);
+
+    printf("Enter city you live in: ");
+    scanf("%s", add.city);
+
+    printf("Enter the state you live in: ");
+    scanf("%s", add.state);
+
+    print(add);
+
+    return 0;
+}
+void print(struct address adds) {
+    printf("Address of the person is: %d, %d, %s, %s\n",
+           adds.hno, adds.block, adds.city, adds.state);
+}
+OUTPUT :-Enter house no: 1
+Enter block no: 8070
+Enter city you live in: Madurai
+Enter the state you live in: Tamil Nadu
+Address of the person is: 1, 8070, Madurai, Tamil
+
+
 
 
 
