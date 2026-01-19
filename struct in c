@@ -119,45 +119,51 @@ int main() {
 OUTPUT=Walter white
 
 ->PROGRAM TO PRINT ADDRESS USING FUNCTION 
+//here what happening is first we take an structure(res) to store the different variables, 
+and then function-print(inside here an passing structure(res) and parameter(red) 
+so when we write the function with the help of red we access all the variables in the array named(adds))
 #include <stdio.h>
-
-struct address {
-    int hno;
-    int block;
-    char city[20];
-    char state[20];
+struct res{
+    int aptno;
+    int roomno;
+    char city[100];
+    char state[100];
 };
-
-void print(struct address adds);
-
+void print(struct res red);
 int main() {
-    struct address add;
+    struct res adds[2];
+    printf("enter info for 1 person:");
+    scanf("%d",&adds[0].aptno);
+    scanf("%d",&adds[0].roomno);
+    scanf("%s",adds[0].city);
+    scanf("%s",adds[0].state);
 
-    printf("Enter house no: ");
-    scanf("%d", &add.hno);
+    printf("enter info for 2 person:");
+    scanf("%d",&adds[1].aptno);
+    scanf("%d",&adds[1].roomno);
+    scanf("%s",adds[1].city);
+    scanf("%s",adds[1].state);
 
-    printf("Enter block no: ");
-    scanf("%d", &add.block);
-
-    printf("Enter city you live in: ");
-    scanf("%s", add.city);
-
-    printf("Enter the state you live in: ");
-    scanf("%s", add.state);
-
-    print(add);
+    print(adds[0]);
+    print(adds[1]);
 
     return 0;
 }
-void print(struct address adds) {
-    printf("Address of the person is: %d, %d, %s, %s\n",
-           adds.hno, adds.block, adds.city, adds.state);
+void print(struct res red){
+printf("%d, %d, %s, %s\n",red.aptno,red.roomno,red.city,red.state);
 }
-OUTPUT :-Enter house no: 1
-Enter block no: 8070
-Enter city you live in: Madurai
-Enter the state you live in: Tamil Nadu
-Address of the person is: 1, 8070, Madurai, Tamil
+OUTPUT:-
+enter info for 1 person:101
+2040
+madurai
+tamilnadu
+enter info for 2 person:102
+4020
+vizag
+andhra pradesh
+101, 2040, madurai, tamilnadu
+102, 4020, vizag, andhra
+
 
 
 
