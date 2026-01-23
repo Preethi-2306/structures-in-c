@@ -164,7 +164,34 @@ andhra pradesh
 101, 2040, madurai, tamilnadu
 102, 4020, vizag, andhra
 
-
+-> PROGRAM TO SEARCH A STUDENT BY THEIR ROLL NO AND RETURN THERE NAME THOUGHT IT WAS DIFFICULT BUT IT WAS PIECE OF A CAKE
+#include <stdio.h>
+struct student{
+    int rollno;
+    char name[100];
+};
+int main() {
+struct student std[5];
+printf("enter roll no and name of students:");
+for(int i=0;i<5;i++){
+scanf("%d %s",&std[i].rollno,std[i].name);
+}
+int k;
+printf("enter the student rollno u want:");
+scanf("%d",&k);
+    int found=0;
+    for(int j=0;j<5;j++){
+        if(k==std[j].rollno){
+        printf(" name is:%s",std[j].name);
+        found=1;
+        break;
+        }
+    }
+    if(found==0){
+    printf("student not found");
+    }
+    return 0;
+}
 
 
 
